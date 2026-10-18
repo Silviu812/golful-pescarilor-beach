@@ -1,0 +1,18 @@
+/* Phone booking dock; keep desktop and large portrait kiosk unchanged. */
+@media(max-width:650px){
+ .kiosk{height:100dvh;min-height:0;--map-size:max(100vw,100dvh)}
+ .kiosk>footer{left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom));padding:10px 12px;border-radius:18px;background:#fffdf4fa;box-shadow:0 5px 25px #33463220}
+ .kiosk>footer .booking-periods{margin:0 0 8px;padding:3px;gap:3px}
+ .kiosk>footer .booking-periods button{min-height:40px;padding:4px 2px;font-size:9px;gap:2px;line-height:1.15}
+ .kiosk>footer .booking-periods small{font-size:8px}
+ .kiosk>footer .selection-info{margin:0 0 8px;gap:8px;min-height:33px}
+ .kiosk>footer .selection-info h3{font-size:15px;margin:0;letter-spacing:-.2px}
+ .kiosk>footer .selection-hint{font-size:9px;margin-top:3px;max-height:13px;max-width:60vw;line-height:13px}
+ .kiosk>footer .total strong{font-size:25px;line-height:1}.kiosk>footer .total small{font-size:12px}
+ .kiosk>footer .total>span,.kiosk>footer .footer-bottom{display:none}
+ .kiosk>footer .reset{padding:7px}.kiosk>footer .reset svg{width:15px;height:15px}
+ .kiosk>footer .continue{min-height:44px;padding:10px 14px;font-size:13px;border-radius:11px}
+ .kiosk>footer .continue svg{width:20px;height:20px}
+ .map-section .legend{bottom:calc(var(--booking-dock-height,170px) + max(8px,env(safe-area-inset-bottom)) + 9px);left:10px;padding:8px 10px;gap:10px;font-size:9px;border-radius:12px}
+ .legend button{bottom:39px;font-size:9px}
+}

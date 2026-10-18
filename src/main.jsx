@@ -15,6 +15,7 @@ const fmt=(day)=>new Intl.DateTimeFormat('ro-RO',{day:'numeric',month:'long'}).f
 function App(){
  const [day,setDay]=useState(0),[selected,setSelected]=useState([]),[period,setPeriod]=useState(periods[0]),[modal,setModal]=useState(null),[done,setDone]=useState(false),[lang,setLang]=useState(false);
  const closeRef=useRef(null),lastFocus=useRef(null);
+ useEffect(()=>{const dock=document.querySelector('.kiosk>footer'),root=dock.closest('.kiosk');const measure=()=>root.style.setProperty('--booking-dock-height',dock.getBoundingClientRect().height+'px');const observer=new ResizeObserver(measure);observer.observe(dock);measure();return()=>observer.disconnect()},[]);
  useEffect(()=>{if(modal){lastFocus.current=document.activeElement;closeRef.current?.focus()}else lastFocus.current?.focus()},[modal]);
  const total=selected.reduce((a,id)=>a+rate(id),0);
  const date=new Date(initialDay);date.setDate(date.getDate()+day);
@@ -47,3 +48,5 @@ import './brand-periods.css';
 import './booking-periods.css';
 
 
+
+import './mobile-compact.css';

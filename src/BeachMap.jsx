@@ -6,7 +6,15 @@ export const seatName=id=>`${'ABCDEFGHIJKLMNOP'[Math.floor(id/32)]}${Math.floor(
 export default function BeachMap({selected,occupied,toggle,rate}){
  const viewport=useRef(null),points=useRef(new Map()),gesture=useRef(null),moved=useRef(false),downSeat=useRef(null);
  const [view,setView]=useState({scale:1,x:0,y:0});const current=useRef(view);
- const apply=next=>{const fit=overview();if(next.scale<=fit.scale+.00001){current.current=fit;setView(fit);return;}const width=viewport.current?.clientWidth||1,height=viewport.current?.clientHeight||1,size=Math.max(width,height);const edgeX=Math.max(0,(size*next.scale-width)/2)+width*.45,edgeY=Math.max(0,(size*next.scale-height)/2)+height*.45;const v={scale:next.scale,x:Math.max(-edgeX,Math.min(edgeX,next.x)),y:Math.max(-edgeY,Math.min(edgeY,next.y))};current.current=v;setView(v)};
+ const apply=next=>{const fit=overview();if(next.scale<=fit.scale+.00001){current.current=fit;setView(fit);return;}const el=viewport.current,w=el?.clientWidth||1,h=el?.clientHeight||1,unit=Math.max(w,h)/1200*next.scale;
+ // The navigable world ends at the outer palms and promenade, not infinite sand.
+ const root=el?.closest('.kiosk'),desktop=window.matchMedia('(min-width:900px) and (orientation:landscape)').matches;
+ const dock=desktop?0:(root?.querySelector('footer')?.getBoundingClientRect().height||0)+20;
+ const top=20,bottom=h-dock,left=16,right=w-16;
+ const clampAxis=(value,low,high,center)=>low<=high?Math.max(low,Math.min(high,value)):center;
+ const minX=right-w/2-(1320-600)*unit,maxX=left-w/2-(-120-600)*unit;
+ const minY=bottom-h/2-(1490-600)*unit,maxY=top-h/2-(-60-600)*unit;
+ const v={scale:next.scale,x:clampAxis(next.x,minX,maxX,0),y:clampAxis(next.y,minY,maxY,(top+bottom)/2-h/2-(715-600)*unit)};current.current=v;setView(v)};
  const zoom=(factor,px=0,py=0)=>{const v=current.current,s=Math.max(overview().scale,Math.min(5,v.scale*factor)),r=s/v.scale;apply({scale:s,x:px-(px-v.x)*r,y:py-(py-v.y)*r})};
  function overview(){const el=viewport.current;if(!el)return {scale:1,x:0,y:0};const root=el.closest('.kiosk'),w=el.clientWidth,h=el.clientHeight;let left=20,right=w-20,top=20,bottom=h-20;if(window.matchMedia('(min-width:900px) and (orientation:landscape)').matches){left=24;right=w-24;top=(root.querySelector('header')?.getBoundingClientRect().bottom||80)+24;bottom=(root.querySelector('.legend')?.getBoundingClientRect().top||h-60)-20;}else{top=(root.querySelector('header')?.getBoundingClientRect().bottom||110)+20;bottom=Math.min(root.querySelector('footer')?.getBoundingClientRect().top||h,root.querySelector('.legend')?.getBoundingClientRect().top||h)-20;}if(right-left<160){left=20;right=w-20;}const side=Math.max(60,Math.min(right-left,bottom-top));return {scale:Math.max(.05,Math.min(1,side/Math.max(w,h))),x:(left+right)/2-w/2,y:(top+bottom)/2-h/2}}
  function desktopStart(){const el=viewport.current,root=el.closest('.kiosk'),w=el.clientWidth,h=el.clientHeight;const left=28,right=w-28;const size=Math.max(w,h);const scale=Math.max(overview().scale,Math.min(1,(right-left)/size));const top=root.querySelector('header').getBoundingClientRect().bottom+25;apply({scale,x:(left+right)/2-w/2,y:top-h/2+size*scale/2});}
