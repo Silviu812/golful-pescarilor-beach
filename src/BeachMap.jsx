@@ -10,7 +10,7 @@ export default function BeachMap({selected,occupied,toggle,rate}){
  // The navigable world ends at the outer palms and promenade, not infinite sand.
  const root=el?.closest('.kiosk'),desktop=window.matchMedia('(min-width:900px) and (orientation:landscape)').matches;
  const dock=desktop?0:(root?.querySelector('footer')?.getBoundingClientRect().height||0)+20;
- const top=20,bottom=h-dock,left=16,right=w-16;
+ const top=0,bottom=h-dock,left=0,right=w;
  const clampAxis=(value,low,high,center)=>low<=high?Math.max(low,Math.min(high,value)):center;
  const minX=right-w/2-(1320-600)*unit,maxX=left-w/2-(-120-600)*unit;
  const minY=bottom-h/2-(1490-600)*unit,maxY=top-h/2-(-60-600)*unit;
