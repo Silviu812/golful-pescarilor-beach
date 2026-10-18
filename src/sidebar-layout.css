@@ -18,3 +18,9 @@
 @media(min-width:900px) and (orientation:landscape) and (max-height:800px){
  .section-heading{top:72px}.map-section h2{font-size:26px;margin:7px 0 9px}.kiosk>.date-panel{top:176px;padding:8px 12px}.map-section .filters{top:253px;gap:6px}.filters button{min-height:38px}.map-tools{top:349px}.map-hint{display:none}.zoom-controls button{height:37px}.kiosk>footer{bottom:17px;padding-top:14px}.selection-info{margin-bottom:12px}.continue{min-height:50px}
 }
+
+/* Keep the full promenade unobstructed in the desktop overview. */
+@media(min-width:900px) and (orientation:landscape){
+ .map-section .legend{left:auto;right:26px;top:292px;bottom:auto;width:calc(var(--sidebar-width) - 52px);box-sizing:border-box;flex-wrap:wrap;gap:10px;padding:12px;background:#f0f2e9}
+}
+@media(min-width:900px) and (orientation:landscape) and (max-height:800px){.map-section .legend{top:250px}}
