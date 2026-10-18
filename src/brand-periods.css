@@ -1,0 +1,12 @@
+.kiosk .brand{padding:0;background:none;border:0;box-shadow:none;text-shadow:none;line-height:0}
+.brand img{display:block;width:160px;height:auto;object-fit:contain}
+.filters button small{position:relative;z-index:1;display:block;font-size:9px;font-weight:400;opacity:.75;margin-top:5px;white-space:nowrap}
+.filters button:nth-child(2):not(.chosen){color:inherit}
+.map-section .filters{gap:3px}.filters button{font-size:11px;letter-spacing:.4px;padding:10px 14px}
+@media(min-width:900px) and (orientation:landscape){.brand img{width:165px}.map-section .filters{display:flex;flex-direction:column;gap:9px}.filters button{text-align:left;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 16px;min-height:54px}.filters button small{margin:0;font-size:10px}.filters button>span:last-of-type{position:relative;z-index:1}}
+@media(min-width:901px) and (orientation:portrait){.brand img{width:155px}.map-section .filters{top:145px}.filters button{font-size:13px;padding:11px 21px}.filters button small{font-size:10px}}
+@media(max-width:650px){.brand img{width:115px}.kiosk>header{top:12px}.map-section .filters{top:98px}.filters button{padding:9px 12px;font-size:10px}.filters button small{font-size:8px}}
+
+.brand img{clip-path:ellipse(50% 49% at 50% 50%)}@media(min-width:900px) and (orientation:landscape){.map-section .filters{align-items:stretch}.filters button{width:100%}}
+
+.filters button>span:not(.filter-bg){position:relative;z-index:1}

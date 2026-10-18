@@ -1,0 +1,2 @@
+/* Zoom through SVG coordinates, never a cached/scaled compositor texture. */
+.kiosk .map-viewport .map-world{position:absolute;inset:0;width:100%;height:100%;max-width:none;transform:none;will-change:auto;overflow:hidden}

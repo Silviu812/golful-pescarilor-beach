@@ -1,0 +1,23 @@
+/* Desktop-only layout. Portrait/mobile styles remain unchanged. */
+@media(min-width:900px) and (orientation:landscape){
+ .kiosk>header{top:25px;left:30px;right:30px}
+ .brand{font-size:34px}.brand-sun{font-size:37px}
+ .map-section .filters{top:21px;left:280px;margin:0;padding:4px}
+ .filters button{font-size:13px;min-height:44px;padding:10px 18px}
+ .kiosk>.date-panel{top:22px;right:108px;padding:5px 12px}
+ .date-panel strong{font-size:16px}
+ .kiosk>footer{left:auto;right:28px;bottom:28px;width:clamp(330px,24vw,420px);padding:22px 23px 17px;border-radius:22px}
+ .selection-info{gap:10px;flex-wrap:wrap;margin-bottom:20px}
+ .selection-info>div:first-child{flex:1;min-width:185px}
+ .selection-info h3{font-size:22px}.selection-hint{max-width:245px;font-size:11px}
+ .total{margin-left:auto}.total strong{font-size:34px}
+ .continue{min-height:60px;font-size:16px}
+ .footer-bottom{font-size:7px;letter-spacing:1px}.footer-bottom button{font-size:10px}
+ .map-tools{right:28px;bottom:315px;gap:9px}
+ .zoom-controls button{width:45px;height:45px}.zoom-controls .fit-map{width:auto}
+ .map-section .legend{left:30px;bottom:28px;padding:12px 16px;font-size:11px}
+}
+@media(min-width:900px) and (max-width:1150px) and (orientation:landscape){
+ .map-section .filters{top:83px;left:28px}.filters button{font-size:12px;padding:9px 15px}
+ .kiosk>footer{width:330px;padding:16px 18px}.map-tools{bottom:300px}
+}

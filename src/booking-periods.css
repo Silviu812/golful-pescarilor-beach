@@ -1,0 +1,9 @@
+.brand img{clip-path:none}
+.kiosk>footer .booking-periods{position:relative;inset:auto;display:grid;grid-template-columns:1fr 1fr;gap:5px;width:100%;max-width:none;margin:0 0 16px;padding:4px;background:#eaece3;border:0;border-radius:12px;box-shadow:none;backdrop-filter:none;align-items:stretch}
+.kiosk>footer .booking-periods button{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;width:100%;min-height:49px;padding:8px;font-size:12px;background:transparent;border-radius:9px;text-align:center}
+.booking-periods .filter-bg{border-radius:9px}.kiosk>footer .booking-periods small{position:relative;z-index:1;margin:0;font-size:10px;opacity:.8}.booking-periods .price-from{display:none}
+@media(max-width:650px){.kiosk>footer .booking-periods{margin-bottom:12px;padding:3px;gap:4px}.kiosk>footer .booking-periods button{min-height:42px;font-size:11px;padding:6px;gap:2px}.kiosk>footer .booking-periods small{font-size:9px}.map-section .legend{bottom:294px}.legend button{bottom:43px}}
+@media(min-width:651px) and (orientation:portrait){.map-section .legend{bottom:365px}}
+
+.kiosk>footer .booking-periods{grid-template-columns:repeat(3,minmax(0,1fr))}.kiosk>footer .booking-periods button{font-size:11px;padding:8px 4px}.kiosk>footer .booking-periods small{font-size:9px}@media(max-width:650px){.kiosk>footer .booking-periods button{font-size:10px}.kiosk>footer .booking-periods small{font-size:8px}}
+.kiosk>footer .booking-periods button{line-height:1.25}.booking-periods button>span:not(.filter-bg){max-width:100%}
