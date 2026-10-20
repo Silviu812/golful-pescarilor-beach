@@ -1,6 +1,6 @@
 # Golful Pescarilor — rezervări plajă
 
-Prototip de design Vite + React: hartă interactivă cu 512 șezlonguri, zoom vectorial și interfață desktop/mobil. Disponibilitatea, prețurile și rezervările sunt demonstrative. Nu se procesează plăți.
+Prototip de design Vite + React: hartă interactivă cu 504 șezlonguri, zoom vectorial și interfață desktop/mobil. Disponibilitatea, prețurile și rezervările sunt demonstrative. Nu se procesează plăți.
 
 ## Pornire
 

@@ -7,7 +7,7 @@ import './style.css';
 import {periods,bookingTotal} from './pricing';
 import BeachMap,{seatName} from './BeachMap';
 
-const occupied=new Set(Array.from({length:512},(_,id)=>id).filter(id=>(id*37+11)%19<5));
+const occupied=new Set(Array.from({length:504},(_,id)=>id).filter(id=>(id*37+11)%19<5));
 const initialDay=new Date(2026,6,18);
 const fmt=(day)=>new Intl.DateTimeFormat('ro-RO',{day:'numeric',month:'long'}).format(day);
 function App(){
@@ -25,7 +25,7 @@ function App(){
  <section className="intro"><div className="eyebrow"><span/> SALT IN THE AIR. SLOW DAYS.</div><motion.h1 initial={{opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{duration:.6}}>Un loc la soare.<br/><span>Doar al tău.</span><span className="hero-sun">☀</span></motion.h1><p>Alege-ți șezlongul. De restul se ocupă marea.</p><div className="weather"><Sun size={23}/><strong>28°</strong><span>O zi perfectă<br/>pentru mare</span></div></section>
  <nav className="steps" aria-label="Pașii rezervării"><span className="active"><b>01</b> Alege locul</span><span className="step-line"/><span><b>02</b> Rezervarea ta</span><span className="step-line"/><span><b>03</b> Enjoy the sun</span></nav>
  <section className="date-panel"><div><span className="overline">ZIUA TA DE PLAJĂ</span><strong>{fmt(date)} <span>2026</span></strong></div><div className="date-actions"><button disabled={day===0} onClick={()=>changeDay(day-1)} aria-label="Ziua precedentă"><ChevronLeft/></button><button className="today" onClick={()=>changeDay(0)}>{day===0?'Zi demo':`+${day} zile`}</button><button onClick={()=>changeDay(day+1)} aria-label="Ziua următoare"><ChevronRight/></button></div><span className="date-divider"/><div className="hours"><span className="overline">FĂRĂ GRABĂ</span><strong>{period.hours}</strong></div></section>
- <section className="map-section"><div className="section-heading"><div><span className="overline">512 ȘEZLONGURI · 128 UMBRELE</span><h2>Unde stăm azi?</h2></div><span className="availability"><i/>{512-occupied.size} locuri libere</span></div>
+ <section className="map-section"><div className="section-heading"><div><span className="overline">504 ȘEZLONGURI · 42 × 12</span><h2>Unde stăm azi?</h2></div><span className="availability"><i/>{504-occupied.size} locuri libere</span></div>
  <BeachMap selected={selected} occupied={occupied} toggle={toggle} rate={rate}/>
  <div className="legend"><span><i className="free"/>Disponibil</span><span><i className="selected"/>Selectat</span><span><i className="taken"/>Ocupat</span><button onClick={()=>setModal('help')}><HelpCircle size={17}/> Cum aleg?</button></div></section>
  <section className="amenities"><div className="amenity-icon"><Waves size={23}/></div><div><strong>Mai puține griji. Mai multă mare.</strong><p>Umbrelă inclusă · Wi-Fi · Acces dușuri</p></div><span className="little-sun">✳</span></section>

@@ -1,15 +1,11 @@
 function Palm({x,y,rotation=0,size=1}){return <g transform={`translate(${x} ${y}) rotate(${rotation}) scale(${size})`}><ellipse cx="12" cy="17" rx="31" ry="19" fill="#6d7759" opacity=".12"/><path d="M0 0 Q9 17 6 29" fill="none" stroke="#b49a6d" strokeWidth="6"/>{Array.from({length:7},(_,n)=><g key={n} transform={`rotate(${n*51})`}><path d="M0 0 Q-23 -29 -3 -48 Q13 -30 0 0" fill={n%2?'#789773':'#94ab7e'} stroke="#698768" strokeWidth=".7"/><path d="M0 0 L-3 -42" stroke="#607f60" strokeWidth=".8" opacity=".65"/></g>)}<circle r="5" fill="#a59158"/></g>}
-export default function BeachSurroundings(){return <g className="surroundings" pointerEvents="none" aria-hidden="true">
- <defs><pattern id="deck-planks" width="15" height="15" patternUnits="userSpaceOnUse"><rect width="15" height="15" fill="#dfc9a5"/><path d="M0 0V15" stroke="#c4ac85" strokeWidth="1"/></pattern></defs>
- <path d="M-85 87Q-115 380 -76 710T-86 1160" fill="none" stroke="#e6dfc9" strokeWidth="58"/>
- <path d="M1272 90Q1313 430 1275 790T1280 1180" fill="none" stroke="#e6dfc9" strokeWidth="58"/>
- {[185,410,660,930].map((y,i)=><g key={y}><ellipse cx={-64} cy={y+20} rx="44" ry="58" fill="#d6ddbe" opacity=".7"/><Palm x={-61} y={y} rotation={i*29} size={.85}/><ellipse cx="1265" cy={y+70} rx="43" ry="52" fill="#d6ddbe" opacity=".7"/><Palm x={1263} y={y+65} rotation={i*37+20} size={.9}/></g>)}
- <rect x="-110" y="1210" width="1420" height="95" rx="12" fill="url(#deck-planks)" stroke="#c8b28e"/>
- <path d="M600 1142V1210" stroke="#d1b68c" strokeWidth="55"/><path d="M578 1155H622M578 1170H622M578 1185H622M578 1200H622" stroke="#bfa57e"/>
- <g transform="translate(65 1325)"><rect x="8" y="9" width="210" height="105" rx="8" fill="#807655" opacity=".12"/><rect width="210" height="105" rx="8" fill="#f4e8ce" stroke="#bca77c" strokeWidth="2"/><rect x="10" y="10" width="190" height="54" rx="4" fill="#a9bdad"/>{[0,1,2,3,4,5,6,7].map(i=><rect key={i} x={10+i*24} y="10" width="12" height="54" fill="#f8f2df"/>)}<rect x="13" y="74" width="184" height="17" rx="3" fill="#c5a77a"/>{[32,68,104,140,176].map(x=><circle key={x} cx={x} cy="112" r="7" fill="#dbc5a0" stroke="#a68c65"/>)}<text x="105" y="153" textAnchor="middle" fill="#7c8169" fontSize="12" letterSpacing="3">BEACH BAR</text></g>
- {[380,470].map((x,i)=><g key={x}><circle cx={x} cy="1365" r="22" fill="#eee3c7" stroke="#c0ad84"/><path d={`M${x-22} 1365h44 M${x} 1343v44`} stroke="#d0bd96"/><circle cx={x} cy="1365" r="3" fill="#b49b71"/>{[-1,1].map(n=><rect key={n} x={x+n*35-7} y="1355" width="14" height="20" rx="4" fill="#bbc7ad" stroke="#91a183"/>)}</g>)}
- <g transform="translate(930 1335)"><rect width="220" height="94" rx="9" fill="#e0e7dc" stroke="#b8c8bc"/>{[0,1,2,3].map(i=><g key={i} transform={`translate(${16+i*52} 12)`}><rect width="35" height="65" rx="4" fill="#c1d7d1" stroke="#8dafa5"/><circle cx="17.5" cy="18" r="8" fill="#e9f0e6"/><path d="M12 33v19m6-19v19m6-19v19" stroke="#90b9b1" strokeWidth="2"/></g>)}<text x="110" y="129" textAnchor="middle" fontSize="11" letterSpacing="3" fill="#7c8169">DUȘURI & REFRESH</text></g>
- <Palm x={-35} y={1390} size={1.2}/><Palm x={1240} y={1400} rotation={42} size={1.2}/>
- <text x="600" y="1267" textAnchor="middle" fontSize="12" letterSpacing="4" fill="#8d7858">PROMENADĂ</text>
+export default function BeachSurroundings(){return <g pointerEvents="none" aria-hidden="true">
+ <path d="M337 130V2800M862 130V2800" stroke="#e6dfc9" strokeWidth="30"/>
+ {Array.from({length:12},(_,i)=>140+i*235).map((y,i)=><g key={y}><Palm x={337} y={y} size={.48} rotation={i*29}/><Palm x={865} y={y+70} size={.48} rotation={i*37}/></g>)}
+ <rect x="320" y="2905" width="560" height="65" rx="8" fill="#dfc9a5" stroke="#c4ac85"/>
+ {Array.from({length:37},(_,i)=><path key={i} d={`M${330+i*15} 2908v59`} stroke="#c4ac85" opacity=".5"/>)}
+ <text x="600" y="2943" textAnchor="middle" fontSize="10" letterSpacing="3" fill="#8d7858">PROMENADĂ</text>
+ <g transform="translate(385 3000)"><rect width="150" height="76" rx="6" fill="#f4e8ce" stroke="#bca77c"/><rect x="8" y="8" width="134" height="36" fill="#a9bdad"/>{Array.from({length:7},(_,i)=><rect key={i} x={8+i*20} y="8" width="10" height="36" fill="#f8f2df"/>)}<rect x="8" y="53" width="134" height="13" fill="#c5a77a"/><text x="75" y="100" textAnchor="middle" fontSize="10" fill="#7c8169">BEACH BAR</text></g>
+ <g transform="translate(695 3000)"><rect width="120" height="76" rx="6" fill="#e0e7dc" stroke="#b8c8bc"/>{[0,1,2].map(i=><g key={i}><rect x={8+i*38} y="8" width="28" height="60" rx="4" fill="#c1d7d1"/><circle cx={22+i*38} cy="24" r="6" fill="#e9f0e6"/></g>)}<text x="60" y="100" textAnchor="middle" fontSize="10" fill="#7c8169">DUȘURI</text></g>
+ <Palm x={335} y={3050} size={.6}/><Palm x={865} y={3050} size={.6}/>
  </g>}
-
